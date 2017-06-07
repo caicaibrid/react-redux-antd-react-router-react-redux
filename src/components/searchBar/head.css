@@ -1,0 +1,26 @@
+.header{
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    background: #E4E4E4;
+}
+.userCenter{
+    padding: 0.3rem;
+    border: 2px solid #ff0000;
+    border-radius: 50%;
+    text-align: center;
+    margin-left: 10px;
+    color: #ff0000;
+}
+.ant-input-affix-wrapper{
+    flex: 1;
+    margin: 0 10px;
+}
+.createInvest{
+    margin-right: 10px;
+}
