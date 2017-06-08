@@ -36,6 +36,7 @@ var composeEnhancers = (typeof window === 'undefined' ? 'undefined' : (0, _typeo
                       */
 
 var enhancer = composeEnhancers((0, _redux.applyMiddleware)(_reduxThunk2.default));
-exports.default = (0, _redux.createStore)(_index2.default, enhancer);
+exports.default = (0, _redux.createStore)(_index2.default, enhancer //applyMiddleware(thunk)
+);
 
 //# sourceMappingURL=store-compiled.js.map

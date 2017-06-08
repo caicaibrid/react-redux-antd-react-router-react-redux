@@ -26,5 +26,5 @@ const enhancer = composeEnhancers(
 );
 export default createStore(
     rootReducer,
-    enhancer
+    enhancer//applyMiddleware(thunk)
 );
