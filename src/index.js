@@ -16,7 +16,7 @@ import "./css/base.css";
 import "./css/animate.css";
 
 store.subscribe(function () {
-    console.log("页面所以的state",store.getState())
+    console.log("页面所有的state",store.getState())
 })
 const route = (
     <Provider store={store} key="provider">

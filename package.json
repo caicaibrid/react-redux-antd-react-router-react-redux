@@ -46,6 +46,7 @@
     "object-assign": "4.1.1",
     "postcss-loader": "1.2.2",
     "promise": "7.1.1",
+    "prop-types": "^15.5.10",
     "react-dev-utils": "^0.5.2",
     "react-redux": "^5.0.5",
     "redux": "^3.6.0",
@@ -63,7 +64,7 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
-    "dev":"webpack-dev-server --config scripts/webpack.config.js"
+    "dev": "webpack-dev-server --config scripts/webpack.config.js"
   },
   "jest": {
     "collectCoverageFrom": [

@@ -1,0 +1,21 @@
+.menuBar {
+    display: flex;
+    flex-flow: row;
+    height:2.4rem;
+    align-items: center;
+    font-weight: bold;
+    color: #333333;
+    font-size: 0.7rem;
+    border-bottom: 1px solid #cccccc;
+    background: #ffffff;
+}
+.menuBar .icon{
+    margin: 0 0.5rem;
+}
+.menuBar .title{
+    flex: 1;
+}
+.menuBar .direction{
+    text-align: center;
+    margin: 0 0.5rem;
+}

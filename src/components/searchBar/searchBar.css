@@ -1,4 +1,4 @@
-.header{
+.search{
     position: fixed;
     top:0;
     left: 0;
@@ -9,18 +9,21 @@
     flex-direction: row;
     background: #E4E4E4;
 }
-.userCenter{
+.search .left{
     padding: 0.3rem;
     border: 2px solid #ff0000;
     border-radius: 50%;
     text-align: center;
     margin-left: 10px;
     color: #ff0000;
+    font-weight: bold;
 }
-.ant-input-affix-wrapper{
+.search .ant-input-affix-wrapper{  /*搜索框*/
     flex: 1;
     margin: 0 10px;
 }
-.createInvest{
+.search .right{
+    font-weight: bold;
+    font-size: 0.7rem;
     margin-right: 10px;
 }
