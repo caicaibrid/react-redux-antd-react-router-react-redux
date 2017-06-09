@@ -3,6 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+
+var _css = require("antd/lib/modal/style/css");
+
+var _modal = require("antd/lib/modal");
+
+var _modal2 = _interopRequireDefault(_modal);
+
 exports.getLoginState = getLoginState;
 exports.login_in = login_in;
 exports.login_out = login_out;
@@ -11,9 +18,10 @@ var _actionTypes = require("./actionTypes");
 
 var _storage = require("../utils/storage");
 
-/**
- * Created by Administrator on 2017/6/4 0004.
- */
+var _reactRouter = require("react-router");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function getLoginState() {
     var username = (0, _storage.getStore)("username");
     if (username) {
@@ -22,11 +30,20 @@ function getLoginState() {
             username: username
         };
     } else {
+        _modal2.default.error({
+            title: '登录失效,请重新登录!',
+            okText: "确定",
+            onOk: function onOk() {
+                _reactRouter.hashHistory.push("/login");
+            }
+        });
         return {
             type: _actionTypes.LOGIN_OUT
         };
     }
-}
+} /**
+   * Created by Administrator on 2017/6/4 0004.
+   */
 function login_in(obj) {
     return function (dispatch) {
         //pending  正在进行登录的状态
@@ -42,8 +59,9 @@ function login_in(obj) {
                     type: _actionTypes.LOGIN_SUCCESS,
                     username: obj.username
                 });
-            }, 1000);
+            }, 2000);
         }).then(function (res) {
+            _reactRouter.hashHistory.push("/");
             dispatch(res);
         });
     };

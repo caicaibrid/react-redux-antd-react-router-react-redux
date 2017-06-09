@@ -21,7 +21,7 @@ export default function (state=loginData,action) {
                 username:action.username
             })
         case LOGIN_OUT:
-            return state
+            return Object.assign({},state,loginData)
         default:
             return state
     }

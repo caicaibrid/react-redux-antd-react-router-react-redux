@@ -1,6 +1,13 @@
 import React, {Component} from "react"
+import PropTypes from "prop-types"
+import {getLoginState} from "../../actions/login"
+
 
 export default class Base extends Component {
+    componentWillMount(){
+        const {store} = this.context;
+        store.dispatch(getLoginState());
+    }
     render() {
         return (
             <div id="app">
@@ -9,3 +16,6 @@ export default class Base extends Component {
         );
     }
 }
+Base.contextTypes = {
+    store: PropTypes.object
+};

@@ -3,17 +3,20 @@
  */
 import React, {Component} from "react"
 import { Icon } from 'antd';
-
+import { hashHistory } from 'react-router';
 
 import Check from "./check/Check"
 import "./header.css"
 import DropDown from "../dropDown/DropDown";
 
 export default class Header extends Component{
+    goBack(){
+        hashHistory.go(-1)
+    }
     render(){
         return(
             <div className="header">
-                <a href="javascript:history.go(-1)">
+                <a onClick={this.goBack.bind(this)}>
                     <Icon type="left" className="back"/>
                 </a>
                 <div className="title">

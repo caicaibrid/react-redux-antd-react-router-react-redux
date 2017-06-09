@@ -1,6 +1,7 @@
 import React,{Component} from "react"
+import PropTypes from "prop-types"
 import { connect } from 'react-redux'
-import { login_in } from  '../../actions/login'
+import { login_in,login_out } from  '../../actions/login'
 import { Form, Icon, Input, Button } from 'antd';
 const FormItem = Form.Item;
 import "./login.css"
@@ -11,15 +12,19 @@ class LoginForm extends Component{
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                console.log('Received values of form: ', values);
-                const {dispatch} = this.props
+                console.log('Received values of form: ', values,this);
+                const {dispatch} = this.context.store;
 				dispatch(login_in(values))
-                location.hash="/"
             }
         });
     }
+    componentDidMount(){
+        const {dispatch} = this.context.store;
+        dispatch(login_out())
+	}
     render (){
         const { getFieldDecorator } = this.props.form;
+        const {loginState,username} = this.props;
         return (
 			<div id="login">
 				<div className="login animated slideInDown">
@@ -40,8 +45,8 @@ class LoginForm extends Component{
                             )}
 						</FormItem>
 						<FormItem >
-							<Button type="danger" htmlType="submit" className="login-form-button">
-								Log in
+							<Button disabled={ loginState===0?false:true } type="danger" htmlType="submit" className="login-form-button">
+								{ loginState===0?"Log in":username }
 							</Button>
 						</FormItem>
 						<div className="login-height">Or <span className="danger">忘记密码 / 重置账号</span> <br/> 请联系管理员18655232222 / aaa@hotmial.com</div>
@@ -52,6 +57,9 @@ class LoginForm extends Component{
 	}
 }
 const Login = Form.create()(LoginForm);
+LoginForm.contextTypes  = {
+	store:PropTypes.object
+}
 
 function mapStateToProps(reducerAll){
     let {userInfo} = reducerAll;
